@@ -43,3 +43,23 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Mini Market ToDo'),
+        actions: [
+          Row(
+            children: [
+              const Icon(Icons.light_mode),
+              Switch(
+                value: widget.isDarkMode,
+                onChanged: widget.onToggleTheme,
+              ),
+              const Icon(Icons.dark_mode),
+            ],
+          ),
+        ],
+      ),
+      
