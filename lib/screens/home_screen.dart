@@ -10,3 +10,11 @@ class HomeScreen extends StatefulWidget {
     required this.isDarkMode,
     required this.onToggleTheme,
   });
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController _controller = TextEditingController();
+  final List<String> _produkList = [];
