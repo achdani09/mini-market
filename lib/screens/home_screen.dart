@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _controller = TextEditingController();
   final List<String> _produkList = [];
-  
+
   void _addProduk() {
     final text = _controller.text.trim();
     if (text.isNotEmpty) {
@@ -27,4 +27,19 @@ class _HomeScreenState extends State<HomeScreen> {
         _controller.clear();
       });
     }
+  }
+  
+  void _removeProduk(int index) {
+    setState(() {
+      _produkList.removeAt(index);
+    });
+  }
+
+  void _navigateToKategori() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => KategoriScreen(produkList: _produkList),
+      ),
+    );
   }
