@@ -62,4 +62,45 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      
+            body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                labelText: 'Masukkan Nama Produk',
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: _addProduk,
+                ),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: _produkList.isEmpty ? null : _navigateToKategori,
+              icon: const Icon(Icons.shopping_cart),
+              label: const Text('Lihat Kategori Belanja'),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _produkList.length,
+                itemBuilder: (context, index) => ListTile(
+                  leading: const Icon(Icons.check_box_outline_blank),
+                  title: Text(_produkList[index]),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red),
+                    onPressed: () => _removeProduk(index), // Hapus produk
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
