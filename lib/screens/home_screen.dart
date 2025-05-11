@@ -18,3 +18,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _controller = TextEditingController();
   final List<String> _produkList = [];
+  
+  void _addProduk() {
+    final text = _controller.text.trim();
+    if (text.isNotEmpty) {
+      setState(() {
+        _produkList.add(text);
+        _controller.clear();
+      });
+    }
+  }
