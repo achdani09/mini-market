@@ -11,3 +11,7 @@ class KategoriScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Kategori Belanja')),
       body: produkList.isEmpty
           ? const Center(child: Text('Belum ada produk ditambahkan.'))
+            : ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: produkList.length,
+              itemBuilder: (context, index) => Card(
