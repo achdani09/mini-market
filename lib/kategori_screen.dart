@@ -15,3 +15,19 @@ class KategoriScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               itemCount: produkList.length,
               itemBuilder: (context, index) => Card(
+                 elevation: 3,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                child: ListTile(
+                  title: Text(
+                    produkList[index],
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  trailing: const Icon(Icons.check_box_outline_blank),
+                ),
+              ),
+            ),
+    );
+  }
+}
